@@ -9,7 +9,6 @@ export class FooterComponent implements OnInit{
   title = 'ToDO';
 
   myDate = Date.now();
-  x = 9.99;
   ngOnInit(): void {
   }
 }

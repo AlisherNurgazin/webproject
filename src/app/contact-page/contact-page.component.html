@@ -5,6 +5,7 @@
 <ul class="nav nav-pills">
   <li [class.active]="viewMode == 'news'"><a (click)="viewMode = 'contact' "><h1 class="choice">Contact us </h1></a></li>
   <li [class.active]="viewMode == 'news'"><a (click)="viewMode = 'map' "><h1 class="choice">Map View </h1></a> </li>
+  <li [class.active]="viewMode == 'news'"><a (click)="viewMode = 'whishlist' "><h1 class="choice">Whish List </h1></a> </li>
 </ul>
 
 <div [ngSwitch]="viewMode">
@@ -76,7 +77,8 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
+
 
   <div *ngSwitchCase="'map'">
     <!--Google map-->
@@ -84,6 +86,21 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.7764533464174!2d76.90755075154429!3d43.23514637903543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692f027581ad%3A0x2426740f56437e63!2z0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0YPQvdC40LLQtdGA0YHQuNGC0LXRgiDQuNC90YTQvtGA0LzQsNGG0LjQvtC90L3Ri9GFINGC0LXRhdC90L7Qu9C-0LPQuNC5!5e0!3m2!1sru!2skz!4v1602618037749!5m2!1sru!2skz" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
 
       </iframe>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'whishlist'">
+    <div class="panel">
+      <h2>Add the game you would like to see in our store:</h2>
+      <div>
+        <input [(ngModel)]="name" placeholder = "Game name" />
+        <button (click)="addItem(name)">Добавить</button>
+      </div>
+      <table>
+        <tr *ngFor="let item of items">
+          <td>{{item}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 

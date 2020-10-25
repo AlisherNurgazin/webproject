@@ -16,6 +16,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import {FormsModule} from '@angular/forms';
 
 
 const routes = [
@@ -42,12 +43,13 @@ const routes = [
     ContactPageComponent,
     RegisterPageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    RouterModule.forRoot(routes)
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        RouterModule.forRoot(routes),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
