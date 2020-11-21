@@ -23,7 +23,9 @@ import {CanactGuard} from './canact/canact.guard';
 const routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginPageComponent},
-  {path: 'contact', component: ContactPageComponent, canActivate: [CanactGuard] },
+  {path: 'contact',
+    component: ContactPageComponent,
+    canActivate: [CanactGuard]},
   {path: 'register', component: RegisterPageComponent},
 ];
 

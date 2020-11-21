@@ -9,8 +9,8 @@ export class CanactGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('next: ' + next.url);
-    console.log('state: ' + state.url);
+    console.log('next:' + next.url);
+    console.log('state:' + state.url);
     return true;
   }
 }
