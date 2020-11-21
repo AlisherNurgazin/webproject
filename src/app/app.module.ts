@@ -17,12 +17,13 @@ import { ProductsComponent } from './components/products/products.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import {FormsModule} from '@angular/forms';
+import {CanactGuard} from './canact/canact.guard';
 
 
 const routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginPageComponent},
-  {path: 'contact', component: ContactPageComponent},
+  {path: 'contact', component: ContactPageComponent, canActivate: [CanactGuard] },
   {path: 'register', component: RegisterPageComponent},
 ];
 
