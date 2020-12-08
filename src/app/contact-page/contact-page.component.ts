@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
 import {LogService} from '../LogService.service';
-
+import {FormControl, FormGroup, Validator, Validators} from '@angular/forms';
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
@@ -10,25 +10,32 @@ import {LogService} from '../LogService.service';
 })
 export class ContactPageComponent implements OnInit {
   items: string[] = [];
-  name: string;
-
+  gamename: string;
+  firstName;
+  email;
+  registerForm = new FormGroup({
+    firstName: new FormControl(),
+    email: new FormControl(),
+  });
   constructor(private dataService: DataService, private logger: LogService) {
   }
-
-  addItem(name: string): void {
-    this.dataService.addData(name);
-    this.logger.log('Test the `log()` Method');
+  addItem(gamename: string){
+    this.dataService.addData(gamename);
+    this.logger.log('Logging service');
   }
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.items = this.dataService.getData();
   }
 
   viewMode = 'contact';
   count = 0;
 
-  buttonClicked(): void {
+  buttonClicked(){
     this.count = this.count + 1;
     console.log('Messages sent:');
+  }
+
+  onSubmit(){
+    console.log(this.registerForm.value);
   }
 }

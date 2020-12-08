@@ -15,22 +15,19 @@
       <div class="row">
         <div class="col-md-8">
           <div class="well well-sm">
-            <form>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="name">
+                    <label for="firstName" >
                       Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-
+                    <input type="text" class="form-control" name="firstName" placeholder="Enter your name" formControlName="firstName" required="required" />
                   </div>
                   <div class="form-group">
+
                     <label for="email">
                       Email Address</label>
-                    <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                      <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                    <input type="text" class="form-control" name="email" placeholder="Enter your email" formControlName="email" required="required" />
                   </div>
                   <div class="form-group">
                     <label for="subject">
@@ -45,7 +42,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="name">
+                    <label for="message">
                       Message</label>
                     <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
                               placeholder="Message"></textarea>
@@ -54,7 +51,7 @@
                 <div class="col-md-12">
                   <button (click)='buttonClicked()' type="submit" class="btn btn-secondary pull-right" id="btnContactUs">
                     Send Message</button>
-                  <p> Messages not sent: {{count}} Times </p>
+                  <p> Messages sent: {{count}} Times </p>
                 </div>
               </div>
             </form>
@@ -93,8 +90,8 @@
     <div class="panel">
       <h2>Add the game you would like to see in our store:</h2>
       <div>
-        <input [(ngModel)]="name" placeholder = "Game name" />
-        <button (click)="addItem(name)">Добавить</button>
+        <input [(ngModel)]="gamename" placeholder = "Game name" />
+        <button (click)="addItem(gamename)">Добавить</button>
       </div>
       <table>
         <tr *ngFor="let item of items">

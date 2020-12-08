@@ -16,17 +16,19 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CanactGuard} from './canact/canact.guard';
-
+import {ExitAboutGuard} from './exit.about.guard';
 
 const routes = [
   {path: '', component: HomePageComponent},
-  {path: 'login', component: LoginPageComponent},
+  {path: 'login', component: LoginPageComponent,
+    canActivate: [CanactGuard]},
   {path: 'contact',
     component: ContactPageComponent,
     canActivate: [CanactGuard]},
-  {path: 'register', component: RegisterPageComponent},
+  {path: 'register', component: RegisterPageComponent,
+    canDeactivate: [ExitAboutGuard]},
 ];
 
 @NgModule({
@@ -46,14 +48,15 @@ const routes = [
     ContactPageComponent,
     RegisterPageComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterModule,
-        RouterModule.forRoot(routes),
-        FormsModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [ExitAboutGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

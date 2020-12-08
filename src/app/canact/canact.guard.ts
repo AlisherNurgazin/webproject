@@ -6,11 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CanactGuard implements CanActivate {
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('next:' + next.url);
-    console.log('state:' + state.url);
-    return true;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean> | boolean{
+
+    return confirm('Do you have an account?');
   }
 }
