@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
 import {LogService} from '../LogService.service';
-import {FormControl, FormGroup, Validator, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
@@ -14,7 +14,10 @@ export class ContactPageComponent implements OnInit {
   firstName;
   email;
   registerForm = new FormGroup({
-    firstName: new FormControl(),
+    firstName: new FormControl(this.firstName, [
+      Validators.required,
+      Validators.minLength (3)
+    ]),
     email: new FormControl(),
   });
   constructor(private dataService: DataService, private logger: LogService) {

@@ -1,0 +1,36 @@
+<div class="container custom-container-2">
+
+  <div class="no-data text-center" *ngIf="Games.length == 0">
+    <p>There is no games added yet!</p>
+    <button class="btn btn-outline-primary" routerLink="/create-games">Add Game</button>
+  </div>
+
+  <div *ngIf="Games.length !== 0">
+    <h3 class="mb-3 text-center">Games List</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">User Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let games of Games">
+          <td>{{games.id}}</td>
+          <td>{{games.name}}</td>
+          <td>{{games.price}}</td>
+          <td>
+            <span class="edit" routerLink="/Games-edit/{{games.id}}">Edit</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

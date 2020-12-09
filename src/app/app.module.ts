@@ -19,6 +19,9 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CanactGuard} from './canact/canact.guard';
 import {ExitAboutGuard} from './exit.about.guard';
+import {GamesCreateComponent } from './games-create/games-create.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GamesListComponent } from './games-list/games-list.component';
 
 const routes = [
   {path: '', component: HomePageComponent},
@@ -29,6 +32,8 @@ const routes = [
     canActivate: [CanactGuard]},
   {path: 'register', component: RegisterPageComponent,
     canDeactivate: [ExitAboutGuard]},
+  {path: 'create-games', component: GamesCreateComponent },
+  {path: 'games-list', component: GamesListComponent }
 ];
 
 @NgModule({
@@ -47,6 +52,8 @@ const routes = [
     ProductsComponent,
     ContactPageComponent,
     RegisterPageComponent,
+    GamesCreateComponent,
+    GamesListComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +61,8 @@ const routes = [
     RouterModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [ExitAboutGuard],
   bootstrap: [AppComponent]

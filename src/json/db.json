@@ -1,0 +1,22 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "name": "Dark souls 4",
+      "price": "$11"
+    },
+    {
+      "id": 2,
+      "name": "GTA 5",
+      "price": "$10"
+    },
+    {
+      "id": 3,
+      "name": "Cyberpunk",
+      "price": "$16"
+    },
+    {
+      "id": 4
+    }
+  ]
+}

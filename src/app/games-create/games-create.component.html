@@ -1,0 +1,21 @@
+<div class="container custom-container">
+  <div class="col-md-12">
+    <h3 class="mb-3 text-center">Create Games</h3>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="gamesDetails.id" class="form-control" placeholder="id">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="gamesDetails.name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="gamesDetails.price" class="form-control" placeholder="Price">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="addGames()">Create Games</button>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@
 <ul class="nav nav-pills">
   <li [class.active]="viewMode == 'news'"><a (click)="viewMode = 'contact' "><h1 class="choice">Contact us </h1></a></li>
   <li [class.active]="viewMode == 'news'"><a (click)="viewMode = 'map' "><h1 class="choice">Map View </h1></a> </li>
-  <li [class.active]="viewMode == 'news'"><a (click)="viewMode = 'whishlist' "><h1 class="choice">Whish List </h1></a> </li>
+  <li [class.active]="viewMode == 'news'"><a (click)="viewMode = 'whishlist' "><h1 class="choice">Wish List </h1></a> </li>
 </ul>
 
 <div [ngSwitch]="viewMode">
@@ -27,7 +27,7 @@
 
                     <label for="email">
                       Email Address</label>
-                    <input type="text" class="form-control" name="email" placeholder="Enter your email" formControlName="email" required="required" />
+                    <input type="text" class="form-control" name="email" placeholder="Enter your email" formControlName="email" required=email />
                   </div>
                   <div class="form-group">
                     <label for="subject">
@@ -67,7 +67,7 @@
               +7(777)777-77-77
             </address>
             <address>
-              <strong>Full Name</strong><br>
+              <strong>Nurgazin Alisher</strong><br>
               <a href="mailto:#">26227@edu.iitu.kz</a>
             </address>
           </form>
