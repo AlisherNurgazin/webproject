@@ -10,28 +10,24 @@ import {FooterComponent} from './components/footer/footer.component';
 import {NewsComponent} from './components/news/news.component';
 import {HighlightDirective} from './components/news/highlight.directive';
 import { FormatPipe } from './format.pipe';
-import { LoginPageComponent } from './login-page/login-page.component';
 import {RouterModule} from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CanactGuard} from './canact/canact.guard';
 import {ExitAboutGuard} from './exit.about.guard';
 import {GamesCreateComponent } from './games-create/games-create.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GamesListComponent } from './games-list/games-list.component';
+import {AuthModule} from './auth/auth.module';
+import {AuthModuleModule} from './auth/auth-module.module';
 
 const routes = [
   {path: '', component: HomePageComponent},
-  {path: 'login', component: LoginPageComponent,
-    canActivate: [CanactGuard]},
   {path: 'contact',
     component: ContactPageComponent,
     canActivate: [CanactGuard]},
-  {path: 'register', component: RegisterPageComponent,
-    canDeactivate: [ExitAboutGuard]},
   {path: 'create-games', component: GamesCreateComponent },
   {path: 'games-list', component: GamesListComponent }
 ];
@@ -47,11 +43,9 @@ const routes = [
     NewsComponent,
     HighlightDirective,
     FormatPipe,
-    LoginPageComponent,
     HomePageComponent,
     ProductsComponent,
     ContactPageComponent,
-    RegisterPageComponent,
     GamesCreateComponent,
     GamesListComponent,
   ],
@@ -63,6 +57,8 @@ const routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AuthModule,
+    AuthModuleModule
   ],
   providers: [ExitAboutGuard],
   bootstrap: [AppComponent]
